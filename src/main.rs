@@ -9,7 +9,7 @@ use colored::*;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let učitane_poveznice_oglasa: Vec<String> = učitaj_poveznice_oglasa("oglasi.tekst")?;
-    let mut trenutni_broj_oglasa:u32 = 0; let  ukupni_broj_oglasa = učitane_poveznice_oglasa.len();
+    let mut trenutni_broj_oglasa:u32 = 0; let  ukupni_broj_oglasa:u32 = učitane_poveznice_oglasa.len();
     let iteratator_poveznica_oglasa = futures::stream::iter(
         učitane_poveznice_oglasa.into_iter().map(|poveznica_oglasa| {
         trenutni_broj_oglasa+=1;
