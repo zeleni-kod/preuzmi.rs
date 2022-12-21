@@ -1,12 +1,13 @@
 [package]
-name = "preuzmi-rs"
+name = "praosudje-rs"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = {version="0.2", features=["full"]}
-reqwest = {version="0.10", features=["json"]}
-futures = "0.3"
+tokio = {version="1.23.0", features=["full"]}
+reqwest = {version="0.11.3", features=["json"]}
+futures = "0.3.25"
+calamine = "0.19.1"
 colored = "2"
