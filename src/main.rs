@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         async move {
             let client = reqwest::Client::new();
             match client.get(&poveznica_oglasa)
-            .header(reqwest::header::USER_AGENT, format!("zeleni-kod-{}",trenutni_broj_oglasa))
+            .header(reqwest::header::USER_AGENT, format!("🌱-{}",trenutni_broj_oglasa))
             .send()
             .await {
                 Ok(resp) => {
@@ -40,7 +40,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         }
                     },
                     _=>{
-                        let poruka_neuspjeh = format!("Neuspjeh preuzimanja {}/{} {}",resp.status(),trenutni_broj_oglasa,ukupni_broj_oglasa);
+                        let poruka_neuspjeh = format!("Neuspjeh preuzimanja {}, {}/{} {}",resp.status(),trenutni_broj_oglasa,ukupni_broj_oglasa,poveznica_oglasa);
                         eprintln!("{}",poruka_neuspjeh.red().bold());
                         let mut datoteka_neuspjeh = OpenOptions::new()
                         .create(true)
