@@ -10,7 +10,7 @@ use colored::*;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let učitane_poveznice_oglasa: Vec<String> = učitaj_poveznice_oglasa("oglasi.tekst")?;
     let mut trenutni_broj_oglasa:u32 = 0; let  ukupni_broj_oglasa:usize = učitane_poveznice_oglasa.len();
-    let iteratator_poveznica_oglasa = futures::stream::iter(
+    let iterator_poveznica_oglasa = futures::stream::iter(
         učitane_poveznice_oglasa.into_iter().map(|poveznica_oglasa| {
         trenutni_broj_oglasa+=1;
         async move {
@@ -67,7 +67,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     })
     ).buffer_unordered(30).collect::<Vec<()>>();
-    iteratator_poveznica_oglasa.await;
+    iterator_poveznica_oglasa.await;
 
     Ok(())
 }
