@@ -40,7 +40,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         }
                     },
                     _=>{
-                        let poruka_neuspjeh = format!("Neuspjeh preuzimanja {} {} {}",resp.status(),trenutni_broj_oglasa,ukupni_broj_oglasa);
+                        let poruka_neuspjeh = format!("Neuspjeh preuzimanja {}/{} {}",resp.status(),trenutni_broj_oglasa,ukupni_broj_oglasa);
                         eprintln!("{}",poruka_neuspjeh.red().bold());
                         let mut datoteka_neuspjeh = OpenOptions::new()
                         .create(true)
