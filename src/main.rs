@@ -43,12 +43,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         let poruka_neuspjeh = format!("Neuspjeh preuzimanja {} {} {}",resp.status(),trenutni_broj_oglasa,ukupni_broj_oglasa);
                         eprintln!("{}",poruka_neuspjeh.red().bold());
                         let mut datoteka_neuspjeh = OpenOptions::new()
-                                .create(true)
-                                .write(true)
-                                .append(true)
-                                .open(format!("{}.tekst",resp.status().as_str()))
-                                .unwrap();
-                                writeln!(datoteka_neuspjeh,"{}",poveznica_oglasa).unwrap();
+                        .create(true)
+                        .write(true)
+                        .append(true)
+                        .open(format!("{}.tekst",resp.status().as_str()))
+                        .unwrap();
+                        writeln!(datoteka_neuspjeh,"{}",poveznica_oglasa).unwrap();
                     }
                     }
                 }
